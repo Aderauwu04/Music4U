@@ -1,0 +1,140 @@
+:root {
+  --fuente-principal: 'Montserrat', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* Barra de navegación */
+nav {
+  display: flex;
+  height: 7rem;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #0000003b;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family:  var(--fuente-principal);
+  font-weight: bold;
+  z-index: 100;
+}
+
+/* Contenedores */
+footer {
+  background-color: black;
+  margin-top: 3rem;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.main {
+  overflow: hidden;
+}
+.contenedor-main {
+  display: flex;
+  background: black;
+  color: white;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 9rem auto;
+  margin-bottom: 5rem;
+}
+.animacion-contenedor {
+  display: flex;
+  transition: all 2s ease;
+}
+.animacion-contenedor.mover {
+  transform: translateX(-101rem);
+}
+.contenedor-main > div {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+.main .contenedor-main:last-child > div {
+  text-align: end;
+}
+.texto-main {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+.texto-main p {
+  margin: 2rem auto;
+}
+
+/* Listas */
+[class^="lista-"] li, [class^="lista-"] a {
+  user-select: none;
+  cursor: pointer;
+  color: white;
+}
+.lista-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.lista-footer li {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: 1rem;
+  border-style: solid;
+  border-width: 0 .1rem;
+  text-align: center;
+}
+.lista-footer li:last-child {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border-style: none;
+}
+.lista-nav {
+  display: flex;
+  align-items: center;
+}
+.lista-nav li {
+  color: black;
+  margin: auto 2rem;
+}
+.lista-nav li:hover {
+  color: darkslateblue;
+}
+
+/* Botones */
+[class^="btn-"] {
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  padding: .7rem;
+  border-radius: 0.7rem;
+}
+.btn-primario {
+  background-color: black;
+  color: white;
+}
+.btn-secundario {
+  background-color: white;
+  color: black;
+}
+
+/* Imágenes */
+.logo {
+  flex: 0 0 8%;
+  max-width: 8%;
+  padding: 1.5rem;
+}
+.logo-secundario {
+  width: 10rem;
+  padding: 0.5rem;
+}
+
+/* Clases Rápidas */
+.wh-100 {
+  width: 100%;
+  height: 100%;
+}
