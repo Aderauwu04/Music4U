@@ -17,6 +17,7 @@
     <div class="logo">
       <img src="src/img/logo.png" class="wh-100">
     </div>
+    <input type="checkbox" id="btnNav">
     <ul class="lista-nav">
       <li onclick="cambiarSeccion(true)">
         Inicio
@@ -30,33 +31,36 @@
         </button>
       </li>
     </ul>
+    <label for="btnNav"><i class="fa-solid fa-bars"></i></label>
   </nav>
   <section class="main">
     <header>
       <h1>Music 4 U</h1>
       <p>Consigue tu música favorita y haste a conocer, Music 4 U para ti siempre que respires</p>
     </header>
-    <div id="idMain" class="animacion-contenedor">
-      <div class="contenedor-main">
-        <div class="img-main">
-          <img src="src/img/main.jpg" class="wh-100">
+    <div class="contenedor-slide">
+      <div id="idMain" class="animacion-contenedor">
+        <div id="idInicio" class="contenedor-main">
+          <div class="img-main">
+            <img src="src/img/main.jpg" class="wh-100">
+          </div>
+          <div class="texto-main">
+            <h2>Únete a la onda</h2>
+            <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
+            <button class="btn-secundario" onclick="cambiarVista('Registrarse')">
+              Registrate
+            </button>
+          </div>
         </div>
-        <div class="texto-main">
-          <h2>Únete a la onda</h2>
-          <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
-          <button class="btn-secundario" onclick="cambiarVista('Registrarse')">
-            Registrate
-          </button>
-        </div>
-      </div>
-      <div class="contenedor-main">
-        <div class="texto-main">
-          <h2>Nosotros</h2>
-          <p>Music4U@gmail.com</p>
-          <p>+58-4247528433</p>
-        </div>
-        <div class="img-main">
-          <img src="src/img/nosotros.jpg" class="wh-100">
+        <div id="idNosotros" class="contenedor-main">
+          <div class="texto-main">
+            <h2>Nosotros</h2>
+            <p>Music4U@gmail.com</p>
+            <p>+58-4247528433</p>
+          </div>
+          <div class="img-main">
+            <img src="src/img/nosotros.jpg" class="wh-100">
+          </div>
         </div>
       </div>
     </div>
@@ -140,27 +144,25 @@
     <div class="logo-secundario">
       <img src="src/img/logo-secundario.png" class="wh-100">
     </div>
-    <div>
-      <ul class="lista-footer">
-        <li onclick="cambiarSeccion(true)">
-          Inicio
-        </li>
-        <li onclick="cambiarSeccion()">
-          Acerca de nosotros
-        </li>
-        <li>
-          <a href="">Política de privacidad</a>
-        </li>
-        <li>
-          <a href="">Términos y condiciones</a>
-        </li>
-        <li>
-          <p>
-            <a href="">@2022 Designed by Aderitauwu04 | Derechos reservados</a>
-          </p>
-        </li>
-      </ul>
-    </div>
+    <ul class="lista-footer">
+      <li onclick="cambiarSeccion(true)">
+        Inicio
+      </li>
+      <li onclick="cambiarSeccion()">
+        Acerca de nosotros
+      </li>
+      <li>
+        <a href="">Política de privacidad</a>
+      </li>
+      <li>
+        <a href="">Términos y condiciones</a>
+      </li>
+      <li>
+        <p>
+          <a href="">@2022 Designed by Aderitauwu04 | Derechos reservados</a>
+        </p>
+      </li>
+    </ul>
   </footer>
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
