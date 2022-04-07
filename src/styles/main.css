@@ -1,13 +1,58 @@
 :root {
-  --fuente-principal: 'Montserrat', sans-serif;
+  --fuente-principal: 'Quicksand', sans-serif;
+  --fuente-secundaria: 'Permanent Marker', cursive;
+  --color-primario: black;
 }
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  font-family: var(--fuente-principal);
+}
+
+/* Textos */
+h1 {
+  margin: auto;
+  width: fit-content;
+  font-family: var(--fuente-secundaria);
+  font-size: 4rem;
+}
+h1 ~ p:first-of-type {
+  margin: auto;
+  width: fit-content;
+}
+h2 {
+  font-size: 3.5rem;
+  font-family: var(--fuente-secundaria);
+  font-weight: lighter;
+}
+h2 ~ p:first-of-type {
+  font-size: 2rem;
+}
+.login > p:first-of-type {
+  width: 50%;
+  margin: auto;
+  margin-right: 0;
+}
+.texto-main {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+.texto-main p {
+  margin: 2rem auto;
+}
+
+/* Fondos */
+.login {
+  background-image: url("../img/iniciarSesion.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto 10rem;
+  margin-top: 8rem;
+  padding: 1rem;
+  text-align: end;
 }
 
 /* Barra de navegación */
@@ -26,8 +71,11 @@ nav {
 }
 
 /* Contenedores */
+header {
+  margin-top: 8rem;
+}
 footer {
-  background-color: black;
+  background-color: var(--color-primario);
   margin-top: 3rem;
   display: flex;
   color: white;
@@ -39,16 +87,16 @@ footer {
 }
 .contenedor-main {
   display: flex;
-  background: black;
+  background: var(--color-primario);
   color: white;
   flex: 0 0 100%;
   max-width: 100%;
-  margin: 9rem auto;
+  margin: 6rem auto;
   margin-bottom: 5rem;
 }
 .animacion-contenedor {
   display: flex;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 .animacion-contenedor.mover {
   transform: translateX(-101rem);
@@ -61,12 +109,41 @@ footer {
 .main .contenedor-main:last-child > div {
   text-align: end;
 }
-.texto-main {
-  margin-top: 3rem;
-  padding: 2rem;
+.landing {
+  background-color: var(--color-primario);
+  color: white;
+  margin: auto 10rem;
+  margin-top: 8rem;
+  padding: 1rem;
+  text-align: center;
 }
-.texto-main p {
-  margin: 2rem auto;
+.landing-form {
+  display: flex;
+  margin: 1.5rem auto;
+}
+.contenedor-2 {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.contenedor-2.beneficio > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 21%;
+}
+.contenedor-2.social > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.contenedor-2.social > div p {
+  padding: .7rem;
+}
+.contenedor-2 > div i {
+  font-size: 2.5rem;
+  padding: .5rem;
 }
 
 /* Listas */
@@ -98,28 +175,69 @@ footer {
   align-items: center;
 }
 .lista-nav li {
-  color: black;
+  color: white;
   margin: auto 2rem;
 }
 .lista-nav li:hover {
   color: darkslateblue;
 }
 
+/* Formularios y inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.landing-form form {
+  justify-content: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+.login form {
+  width: fit-content;
+  margin: 8rem auto;
+  margin-right: 3rem;
+}
+.input {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 20rem;
+}
+input[type="text"] {
+  border: none;
+  outline: none;
+  padding: .5rem;
+}
+input[type="text"] ~ label {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: bottom .3s ease;
+  z-index: -1;
+}
+input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
+  z-index: 0;
+  bottom: 2rem;
+}
+
 /* Botones */
 [class^="btn-"] {
   text-transform: uppercase;
   outline: none;
+  font-weight: bold;
   border: none;
   padding: .7rem;
   border-radius: 0.7rem;
 }
 .btn-primario {
-  background-color: black;
+  background-color: var(--color-primario);
   color: white;
 }
 .btn-secundario {
   background-color: white;
-  color: black;
+  color: var(--color-primario);
 }
 
 /* Imágenes */
@@ -132,9 +250,20 @@ footer {
   width: 10rem;
   padding: 0.5rem;
 }
+.img-landing {
+  flex: 0 0 48%;
+  margin-left: -5rem;
+}
+.img-social {
+  flex: 0 0 16%;
+}
 
 /* Clases Rápidas */
 .wh-100 {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  
 }
