@@ -2,6 +2,7 @@
   --fuente-principal: 'Quicksand', sans-serif;
   --fuente-secundaria: 'Permanent Marker', cursive;
   --color-primario: black;
+  --color-secundario: #684a83;
 }
 * {
   padding: 0;
@@ -232,6 +233,14 @@ form {
   position: relative;
   margin-bottom: 2rem;
   width: 18rem;
+}
+input[type="file"] {
+  display: none;
+}
+input[type="file"] ~ label {
+  background-color: var(--color-secundario);
+  border-radius: 2rem;
+  padding: .5rem;
 }
 input[type="text"] {
   border: none;
