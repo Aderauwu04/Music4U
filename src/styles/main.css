@@ -255,6 +255,7 @@ form {
 .basic-form h2 {
   font-size: 2rem;
   color: white;
+  margin: 2rem auto;
 }
 .cancion {
   background-color: var(--color-primario);
