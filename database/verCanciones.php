@@ -1,8 +1,21 @@
 <?php
   include('database.php');
+  $can = array();
   $canTop = array();
   $canRe = array();
   $artistas = array();
+  $sql = "SELECT canciones.*, img, user FROM `Music4U`.`canciones` JOIN `users` ON id_user=id_user_can";
+  $r = mysqli_query($con, $sql);
+  while ($filas=mysqli_fetch_array($r)) {
+    $can[] = array(
+      'id_can' => $filas['id_can'],
+      'user' => $filas['user'],
+      'img' => $filas['img'],
+      'nombre_can' => $filas['nombre_can'],
+      'genero' => $filas['genero'],
+      'audio' => $filas['audio'],
+    );
+  }
   $sql = "SELECT canciones.*, img, user FROM `Music4U`.`canciones` JOIN `users` ON id_user=id_user_can LIMIT 20";
   $r = mysqli_query($con, $sql);
   while ($filas=mysqli_fetch_array($r)) {
@@ -36,7 +49,7 @@
       'img' => $filas['img'],
     );
   }
-  $canciones = array("top"=>$canTop, "recientes"=>$canRe,"artistas"=>$artistas);
+  $canciones = array("canciones"=>$can, "top"=>$canTop, "recientes"=>$canRe,"artistas"=>$artistas);
   echo json_encode($canciones);
 
 ?>

@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  $u = $_SESSION['usuario'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +29,24 @@
       <li onclick="cambiarSeccion()">
         Acerca de nosotros
       </li>
-      <li>
-        <button class="btn-primario" onclick="cambiarVista('Iniciar')">
-          Iniciar sesión
-        </button>
-      </li>
+      <?php
+        if ($u) {
+          echo '
+          <li>
+            <button class="btn-primario" onclick="cerrarSesion()">
+              Cerrar sesión
+            </button>
+          </li>';
+        } else {
+          $i = "'Iniciar'";
+          echo '
+          <li>
+            <button class="btn-primario" onclick="cambiarVista('.$i.')">
+              Iniciar sesión
+            </button>
+          </li>';
+        }
+      ?>
     </ul>
     <label for="btnNav"><i class="fa-solid fa-bars"></i></label>
   </nav>
@@ -205,7 +222,12 @@
       <button onclick="subirCancion()" class="btn-secundario">Publicar canción</button>
     </form>
   </div>
-  <label class="btn-agregar" for="btnAgregar"><i class="fa-solid fa-plus"></i></label>
+  <?php
+    if ($u) {
+      echo '
+      <label class="btn-agregar" for="btnAgregar"><i class="fa-solid fa-plus"></i></label>';
+    }
+  ?>
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="src/js/app.js"></script>

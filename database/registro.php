@@ -13,7 +13,7 @@
     $r = mysqli_query($con, $sql);
     if ($r) {
       echo 'Se ha registrado exitosamente';
-      header("Location:../index.html");
+      header("Location:../index.php");
     } else {
       echo $con->error;
     }

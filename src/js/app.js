@@ -38,9 +38,30 @@ obtenerCanciones();
 function obtenerCanciones () {
 $.get("database/verCanciones.php", function (response) {
   let can = JSON.parse(response)
+    let listadoCanciones = ''
     let listadoTop = ''
     let listadoRecientes = ''
     let listadoArtistas = ''
+    if (can.canciones.length) {
+      can.canciones.forEach((can) => {
+        listadoCanciones += `
+        <div>
+          <div class="musica-info">
+            <div class="img-artista">
+              <img src="${can.img}" class="wh-100">
+            </div>
+            <div>
+              <p>${can.nombre_can}</p>
+              <p>${can.user} - ${can.genero}</p>
+            </div>
+          </div>
+          <audio controls>
+            <source src="${can.audio}" type="audio/mpeg">
+          </audio>
+        </div>`
+      })
+      $('#idTcanciones').html(listadoCanciones);
+    }
     if (can.top.length) {
       can.top.forEach((can) => {
         listadoTop += `
@@ -95,4 +116,13 @@ $.get("database/verCanciones.php", function (response) {
     }
   },
 );
+}
+
+function cerrarSesion() {
+  const data = {};
+  $.post("database/cerrarSesion.php", data,
+    function (response) {
+      location("index.php")
+    },
+  );
 }

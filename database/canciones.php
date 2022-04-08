@@ -16,7 +16,7 @@ $audio = "uploads/audios/" . basename($_FILES["idCancion"]["name"]);
       echo 'ha regitrado su cancion';
       $sql = "UPDATE `users` SET `num_canciones` = num_canciones+1 WHERE `users`.`id_user` = $user;";
       $r = mysqli_query($con, $sql);
-      header("Location:../index.html");
+      header("Location:../index.php");
     } else {
       echo $con->error;
     }
