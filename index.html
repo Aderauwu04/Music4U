@@ -68,7 +68,7 @@
   <section class="landing">
     <h2>Únete a la onda</h2>
     <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
-    <div class="landing-form">
+    <div class="basic-form">
       <div class="img-landing">
         <img src="src/img/landing-img.jpg" class="wh-100">
       </div>
@@ -185,6 +185,26 @@
       </li>
     </ul>
   </footer>
+  <input type="checkbox" id="btnAgregar">
+  <div class="basic-form cancion">
+    <form>
+      <h2>Agrega una canción tuya</h2>
+      <div class="input">
+        <input type="text" id="idTitulo" class="wh-100" placeholder="Titulo" required>
+        <label for="idTitulo">Titulo</label>
+      </div>
+      <div class="input">
+        <input type="text" id="idGenero" class="wh-100" placeholder="Genero" required>
+        <label for="idGenero">Genero</label>
+      </div>
+      <div class="input">
+        <input type="file" id="idCancion" class="wh-100" required>
+        <label for="idCancion">Subir canción</label>
+      </div>
+      <button class="btn-secundario">Publicar canción</button>
+    </form>
+  </div>
+  <label class="btn-agregar" for="btnAgregar"><i class="fa-solid fa-plus"></i></label>
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="src/js/app.js"></script>

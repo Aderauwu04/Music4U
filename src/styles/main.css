@@ -127,7 +127,7 @@ footer {
   padding: 1rem;
   text-align: center;
 }
-.landing-form {
+.basic-form {
   display: flex;
   margin: 1.5rem auto;
 }
@@ -239,8 +239,9 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
-.landing-form form {
+.basic-form form {
   justify-content: center;
   flex-basis: 0;
   flex-grow: 1;
@@ -251,15 +252,22 @@ form {
   margin: 4rem auto;
   margin-right: 0;
 }
-#btnNav {
-  display: none;
+.basic-form h2 {
+  font-size: 2rem;
+  color: white;
 }
-#btnNav:checked ~ .lista-nav {
-  right: 0;
-}
-#btnNav ~ label {
-  font-size: 2.5rem;
-  padding: .5rem;
+.cancion {
+  background-color: var(--color-primario);
+  height: 90vh;
+  width: 20rem;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.432);
+  position: fixed;
+  top: 7rem;
+  z-index: 30;
+  right: -30rem;
+  transition: right .5s ease;
+  margin: 0;
 }
 .input {
   position: relative;
@@ -292,6 +300,18 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   bottom: 2rem;
 }
 
+/* Checkboxes */
+#btnNav, #btnAgregar {
+  display: none;
+}
+#btnNav:checked ~ .lista-nav, #btnAgregar:checked ~ .cancion {
+  right: 0;
+}
+#btnNav ~ label {
+  font-size: 2.5rem;
+  padding: .5rem;
+}
+
 /* Botones */
 [class^="btn-"] {
   text-transform: uppercase;
@@ -308,6 +328,18 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
 .btn-secundario {
   background-color: white;
   color: var(--color-primario);
+}
+.btn-agregar {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 50;
+  font-size: 3rem;
+  color: white;
+  background: var(--color-secundario);
+  border-radius: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* Imágenes */
@@ -341,6 +373,9 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
 @media screen and (min-width: 576px) {
   .contenedor-3 > div {
     font-size: .9rem;
+  }
+  .cancion {
+  width: 30rem;
   }
 }
 @media screen and (min-width: 768px) {
@@ -443,10 +478,6 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   }
 
   /* Imágenes */
-  /* .logo {
-    flex: 0 0 8%;
-    max-width: 8%;
-  } */
   .logo-secundario {
     padding: 1.5rem;
   }
