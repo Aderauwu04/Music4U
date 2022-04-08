@@ -6,19 +6,15 @@ function cambiarSeccion(seccion) {
 
 // REGISTRARSE
 function registrarse() {
-  const data = {
-    nombre: $('#nombre').val(),
-    user: $('#usuario').val(),
-    pass: $('#password').val(),
-  };
-  $.post("database/registrarse.php", data,
+  const data = $('#registrarse');
+  $.post("database/registro.php", data,
     function (response) {
       console.log(response)
     });
 }
 
 // INICIAR SESIÓN
-function login() {
+function iniciarSesion() {
   const data = {
     user: $('#usuarioIniciar').val(),
     pass: $('#passwordIniciar').val(),
