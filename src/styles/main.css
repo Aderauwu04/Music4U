@@ -156,6 +156,38 @@ footer {
   font-size: 2.5rem;
   padding: .5rem;
 }
+.contenedor-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.contenedor-3 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  line-height: 1.8rem;
+}
+.musica-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+}
+.musica > div {
+  background-color: var(--color-secundario);
+  margin: .5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.musica > div h3 {
+  position: absolute;
+  top: -1.5rem;
+}
+audio {
+  width: 100%;
+}
 
 /* Listas */
 [class^="lista-"] li, [class^="lista-"] a {
@@ -295,6 +327,9 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
 .img-main {
   display: none;
 }
+.img-artista {
+  width: 7rem;
+}
 
 /* Clases Rápidas */
 .wh-100 {
@@ -303,7 +338,10 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
 }
 
 /* Responsive */
-@media screen and (min-width:576px) {
+@media screen and (min-width: 576px) {
+  .contenedor-3 > div {
+    font-size: .9rem;
+  }
 }
 @media screen and (min-width: 768px) {
   /* Contenedores */
@@ -320,6 +358,17 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   .ocultar {
     opacity: 1;
     order: 0;
+  }
+  .contenedor-3 > div {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 40%;
+  }
+  /* .contenedor-3 > div {
+    flex: 0 0 25%;
+  } */
+  .musica-info {
+    flex-direction: row;
   }
 
   /* Listas */
