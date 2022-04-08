@@ -493,4 +493,7 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   .lista-footer {
     width: 55rem;
   }
+  .animacion-contenedor.mover {
+    transform: translateX(-74rem);
+  }
 }
