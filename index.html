@@ -187,21 +187,21 @@
   </footer>
   <input type="checkbox" id="btnAgregar">
   <div class="basic-form cancion">
-    <form>
+    <form action="database/canciones.php" id="canciones" method="post" enctype="multipart/form-data">
       <h2>Agrega una canción tuya</h2>
       <div class="input">
-        <input type="text" id="idTitulo" class="wh-100" placeholder="Titulo" required>
+        <input type="text" id="idTitulo" class="wh-100" name="idTitulo" placeholder="Titulo" required>
         <label for="idTitulo">Titulo</label>
       </div>
       <div class="input">
-        <input type="text" id="idGenero" class="wh-100" placeholder="Genero" required>
+        <input type="text" id="idGenero" class="wh-100" name="idGenero" placeholder="Genero" required>
         <label for="idGenero">Genero</label>
       </div>
       <div class="input">
-        <input type="file" id="idCancion" class="wh-100" required>
+        <input type="file" id="idCancion" name="idCancion" class="wh-100" required>
         <label for="idCancion">Subir canción</label>
       </div>
-      <button class="btn-secundario">Publicar canción</button>
+      <button onclick="subirCancion()" class="btn-secundario">Publicar canción</button>
     </form>
   </div>
   <label class="btn-agregar" for="btnAgregar"><i class="fa-solid fa-plus"></i></label>

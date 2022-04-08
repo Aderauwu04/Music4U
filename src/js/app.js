@@ -25,7 +25,7 @@ function iniciarSesion() {
 }
 
 function subirCancion() {
-const data = $('#insertar');
+const data = $('#canciones');
 $.post("database/canciones.php", data,
   function (response) {
     console.log(response)
