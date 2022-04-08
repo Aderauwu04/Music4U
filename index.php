@@ -23,10 +23,27 @@
     </div>
     <input type="checkbox" id="btnNav">
     <ul class="lista-nav">
-      <li onclick="cambiarSeccion(true)">
+      <li onclick="cambiarSeccion(true), cambiarVista('inicio')">
         Inicio
       </li>
-      <li onclick="cambiarSeccion()">
+      <?php
+      if ($u) {
+        echo '
+        <li onclick="irA(`Artistas`), cambiarVista(`musica`)">
+          Artistas destacados
+        </li>
+        <li onclick="irA(`Recientes`), cambiarVista(`musica`)">
+          Recientes
+        </li>
+        <li onclick="irA(`TH`)">
+          Top Hits
+        </li>
+        <li onclick="irA(`Canciones`), cambiarVista(`musica`)">
+          Canciones
+        </li>';
+      }
+      ?>
+      <li onclick="cambiarSeccion(), cambiarVista('inicio')">
         Acerca de nosotros
       </li>
       <?php
@@ -38,10 +55,9 @@
             </button>
           </li>';
         } else {
-          $i = "'Iniciar'";
           echo '
           <li>
-            <button class="btn-primario" onclick="cambiarVista('.$i.')">
+            <button class="btn-primario" onclick="cambiarVista(`login`)">
               Iniciar sesión
             </button>
           </li>';
@@ -50,7 +66,7 @@
     </ul>
     <label for="btnNav"><i class="fa-solid fa-bars"></i></label>
   </nav>
-  <section class="main">
+  <section id="main" class="main">
     <header>
       <h1>Music 4 U</h1>
       <p>Consigue tu música favorita y haste a conocer, Music 4 U para ti siempre que respires</p>
@@ -62,11 +78,25 @@
             <img src="src/img/main.jpg" class="wh-100">
           </div>
           <div class="texto-main">
-            <h2>Únete a la onda</h2>
-            <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
-            <button class="btn-secundario" onclick="cambiarVista('Registrarse')">
-              Registrate
-            </button>
+            <?php
+            if ($u) {
+              echo '
+              <h2>¡Bienvenido!</h2>
+              <p>Comienza a relajarte y escucha la música que mas te gusta</p>
+              <button class="btn-secundario" onclick="cambiarVista(`musica`)">
+                Ir
+              </button>
+              ';
+            } else {
+              echo '
+              <h2>Únete a la onda</h2>
+              <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
+              <button class="btn-secundario" onclick="cambiarVista(`landing`)">
+                Registrate
+              </button>
+              ';
+            }
+            ?>
           </div>
         </div>
         <div id="idNosotros" class="contenedor-main">
@@ -82,7 +112,7 @@
       </div>
     </div>
   </section>
-  <section class="landing">
+  <section id="landing" class="landing d-none">
     <h2>Únete a la onda</h2>
     <p>Registrate para conocer los beneficios de los artistas que tiene Music 4U</p>
     <div class="basic-form">
@@ -144,7 +174,7 @@
       </div>
     </div>
   </section>
-  <section class="login">
+  <section id="login" class="login d-none">
     <h2>¿Ya estas registrado?</h2>
     <p>Entonces inicia sesión rápido y escucha la música que mas te gusta ¡Pasa un buen momento!</p>
     <form>
@@ -161,7 +191,7 @@
     <p>Si no estas registrado... ¡ven aquí!</p>
     <button class="btn-primario">Registrarse</button>
   </section>
-  <section class="musica">
+  <section id="musica" class="musica d-none">
     <div>
       <h3>Artistas destacados</h3>
       <div id="idArtDes" class="contenedor-3"></div>

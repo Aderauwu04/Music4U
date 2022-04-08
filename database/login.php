@@ -13,11 +13,12 @@
       $_SESSION['usuario'] = $re[0];
       $_SESSION['nombre'] = $re[1];
       echo 'ha iniciado sesión exitosamente';
+      header("Location:../index.php");
     } else {
       echo $con->error;
     }
   } else {
-    echo false;
+    echo 'error';
   }
 
 ?>

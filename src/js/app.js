@@ -1,7 +1,60 @@
-const main = document.getElementById('idMain'), inicio = document.getElementById('idInicio'), nosotros = document.getElementById('idNosotros')
-
+const main = document.getElementById('idMain'), inicioInfo = document.getElementById('idInicio'), nosotros = document.getElementById('idNosotros')
 function cambiarSeccion(seccion) {
-  return !seccion ? [main.classList.add('mover'), inicio.classList.add('ocultar')] : [main.classList.remove('mover'), inicio.classList.remove('ocultar')]
+  return !seccion ? [main.classList.add('mover'), inicioInfo.classList.add('ocultar')] : [main.classList.remove('mover'), inicioInfo.classList.remove('ocultar')]
+}
+
+const vistas = [
+  {
+    titulo: 'inicio',
+    seccion: document.getElementById('main'),
+  },
+  {
+    titulo: 'landing',
+    seccion: document.getElementById('landing'),
+  },
+  {
+    titulo: 'login',
+    seccion: document.getElementById('login'),
+  },
+  {
+    titulo: 'musica',
+    seccion: document.getElementById('musica')
+  }
+]
+function cambiarVista(vista) {
+  vistas.forEach(vis => {
+    if (vis.titulo === vista ) {
+      vis.seccion.classList.remove('d-none')
+    } else if (!vis.seccion.classList.contains('d-none')) {
+      vis.seccion.classList.add('d-none')
+    }
+  });
+}
+
+const secciones = [
+  {
+    titulo: 'Artistas',
+    seccion: document.getElementById('idArtDes')
+  },
+  {
+    titulo: 'Recientes',
+    seccion: document.getElementById('idRec')
+  },
+  {
+    titulo: 'TH',
+    seccion: document.getElementById('idTpH')
+  },
+  {
+    titulo: 'Canciones',
+    seccion: document.getElementById('idTcanciones')
+  }
+]
+function irA(seccion) {
+  secciones.forEach(secc => {
+    if (secc.titulo === seccion) {
+      secc.seccion.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  });
 }
 
 // REGISTRARSE
@@ -23,7 +76,6 @@ function iniciarSesion() {
     console.log(response)
   });
 }
-
 function subirCancion() {
 const data = $('#canciones');
 $.post("database/canciones.php", data,
@@ -32,9 +84,7 @@ $.post("database/canciones.php", data,
   },
 );
 }
-
 obtenerCanciones();
-
 function obtenerCanciones () {
 $.get("database/verCanciones.php", function (response) {
   let can = JSON.parse(response)
@@ -122,7 +172,8 @@ function cerrarSesion() {
   const data = {};
   $.post("database/cerrarSesion.php", data,
     function (response) {
-      location("index.php")
+      console.log(response)
     },
   );
+  window.location.reload()
 }

@@ -68,6 +68,7 @@ nav {
   font-family:  var(--fuente-principal);
   font-weight: bold;
   z-index: 100;
+  text-align: center;
 }
 
 /* Contenedores */
@@ -160,6 +161,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 10rem;
 }
 .contenedor-3 > div {
   display: flex;
@@ -167,6 +169,11 @@ footer {
   align-items: center;
   padding: 1rem;
   line-height: 1.8rem;
+  justify-content: space-between;
+  flex: 0 0 100%;
+}
+.musica {
+  margin-top: 8.5rem;
 }
 .musica-info {
   display: flex;
@@ -224,11 +231,11 @@ audio {
   top: 7rem;
   background-color: #0000003b;
   transition: right .5s ease;
-  height: 12rem;
+  height: 20rem;
 }
 .lista-nav li {
   color: white;
-  margin: auto 2rem;
+  margin: auto .5rem;
 }
 .lista-nav li:hover {
   color: darkslateblue;
@@ -282,6 +289,7 @@ input[type="file"] ~ label {
   background-color: var(--color-secundario);
   border-radius: 2rem;
   padding: .5rem;
+  color: white;
 }
 input[type="text"] {
   border: none;
@@ -369,11 +377,15 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   width: 100%;
   height: 100%;
 }
+.d-none {
+  display: none;
+}
 
 /* Responsive */
 @media screen and (min-width: 576px) {
   .contenedor-3 > div {
     font-size: .9rem;
+    flex: 0 0 50%;
   }
   .cancion {
   width: 30rem;
@@ -396,13 +408,8 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
     order: 0;
   }
   .contenedor-3 > div {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 40%;
+    flex: 0 0 33%;
   }
-  /* .contenedor-3 > div {
-    flex: 0 0 25%;
-  } */
   .musica-info {
     flex-direction: row;
   }
@@ -461,12 +468,16 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label  {
   }
   .landing {
     margin: auto 10rem;
+    margin-top: 8rem;
   }
   .contenedor-2 {
     flex-direction: row;
   }
   .contenedor-2.beneficio > div {
     flex: 0 0 21%;
+  }
+  .contenedor-3 > div {
+    flex: 0 0 25%;
   }
 
   /* Formularios y inputs */

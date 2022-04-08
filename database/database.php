@@ -12,7 +12,7 @@
     if ($con->query($sql) != true) {
       echo 'Ha ocurrido problemas creando la tabla USERS'.$con->error;
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `Music4U`.`canciones` ( `id_can` INT NOT NULL AUTO_INCREMENT , `nombre_can` VARCHAR(50) NOT NULL , `audio` TEXT NOT NULL, `genero` VARCHAR(20) NOT NULL , `id_user_can` INT NOT NULL , `vistas` INT NULL DEFAULT NULL , `fec_cre` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id_can`)) ENGINE = InnoDB";
+    $sql = "CREATE TABLE IF NOT EXISTS `Music4U`.`canciones` ( `id_can` INT NOT NULL AUTO_INCREMENT , `nombre_can` VARCHAR(50) NOT NULL , `audio` TEXT NOT NULL, `genero` VARCHAR(20) NOT NULL , `id_user_can` INT NOT NULL , `fec_cre` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id_can`)) ENGINE = InnoDB";
     if ($con->query($sql) != true) {
       echo 'Ha ocurrido problemas creando la tabla CANCIONES'.$con->error;
     }
