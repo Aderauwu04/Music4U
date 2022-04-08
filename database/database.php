@@ -20,6 +20,8 @@
     echo 'Ha ocurrido problemas creando la base de datos'.$con->error;
   }
 
+  $con = mysqli_connect('localhost','root','','Music4U');
+
 erroresON();
 function erroresON() {
   error_reporting(E_ALL);

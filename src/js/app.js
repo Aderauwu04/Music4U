@@ -38,13 +38,60 @@ obtenerCanciones();
 function obtenerCanciones () {
 $.get("database/verCanciones.php", function (response) {
   let can = JSON.parse(response)
-    let listadoCanciones = ''
-    if (can.canciones.length) {
-      can.canciones.forEach((can) => {
-        listadoCanciones += `<audio controls>
-        <source src="${can.audio}" type="audio/mpEg"></audio>`
+    let listadoTop = ''
+    let listadoRecientes = ''
+    let listadoArtistas = ''
+    if (can.top.length) {
+      can.top.forEach((can) => {
+        listadoTop += `
+        <div>
+          <div class="musica-info">
+            <div class="img-artista">
+              <img src="${can.img}" class="wh-100">
+            </div>
+            <div>
+              <p>${can.nombre_can}</p>
+              <p>${can.user} - ${can.genero}</p>
+            </div>
+          </div>
+          <audio controls>
+            <source src="${can.audio}" type="audio/mpeg">
+          </audio>
+        </div>`
       });
-      $('#canciones').html(listadoCanciones);
+      $('#idTpH').html(listadoTop);
+    }
+    if (can.recientes.length) {
+      can.recientes.forEach((can) => {
+        listadoRecientes += `
+        <div>
+          <div class="musica-info">
+            <div class="img-artista">
+              <img src="${can.img}" class="wh-100">
+            </div>
+            <div>
+              <p>${can.nombre_can}</p>
+              <p>${can.user} - ${can.genero}</p>
+            </div>
+          </div>
+          <audio controls>
+            <source src="${can.audio}" type="audio/mpeg">
+          </audio>
+        </div>`
+      })
+      $('#idRec').html(listadoRecientes);
+    }
+    if (can.artistas.length) {
+      can.artistas.forEach((can) => {
+        listadoArtistas += `
+        <div>
+          <div class="img-artista">
+            <img src="${can.img}" class="wh-100">
+          </div>
+          <p>${can.user}</p>
+        </div>`
+      })
+      $('#idArtDes').html(listadoArtistas);
     }
   },
 );
